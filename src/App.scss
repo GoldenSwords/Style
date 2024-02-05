@@ -1,0 +1,50 @@
+:root {
+  --m3-switch-size: 20px;
+  --m3-switch-padding: 2px;
+  --m3-switch-bg: #eee;
+  --m3-switch-thumb-active: blue;
+  --m3-switch-thumb-bg: #ddd;
+  --m3-switch-outline: 2px solid blue;
+}
+
+.mk-switch {
+  margin: var(--m3-siwtch-size);
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+
+  .mk-siwtch-control {
+    display: none;
+  }
+
+  .mk-switch-container {
+    height: var(--m3-switch-size);
+    width: calc(var(--m3-switch-size) * 2);
+    outline: var(--m3-switch-outline);
+    padding: var(--m3-switch-padding);
+    border-radius: var(--m3-switch-size);
+  }
+
+  .mk-siwtch-control {
+    + * {
+      background-color: var(--m3-switch-bg);
+
+      > * {
+        position: relative;
+        transition: 0.3s;
+        left: 0;
+        display: block;
+        top: 0;
+        border-radius: 100%;
+        height: var(--m3-switch-size);
+        width: var(--m3-switch-size);
+        background-color: var(--m3-switch-thumb-bg);
+      }
+    }
+
+    &:checked + * > * {
+      left: var(--m3-switch-size);
+      background-color: var(--m3-switch-thumb-active);
+    }
+  }
+}
